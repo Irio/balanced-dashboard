@@ -16,25 +16,30 @@
 		<div class="row">
 			<div class="span2 border-adjust"></div>
 			<div class="span18 border-adjust">
-				<div class="row-fluid">
-					<div class="span16">
-						<section class="transaction-info">
-							<div class="key-value-display">
-								<header>
-									<h3>Refund
-										{{edit-transaction-modal transaction=refund}}
-									</h3>
-								</header>
-								{{txn-description transaction=refund}}
-							</div>
-						</section>
+				<section class="transaction-info">
+					<div class="key-value-display">
+						<header>
+							<h3>Refund
+								{{edit-transaction-modal transaction=refund}}
+							</h3>
+						</header>
+						{{txn-description transaction=refund}}
+					</div>
+				</section>
 
-						{{txn-funding-instrument funding_instrument=refund.debit.source}}
-					</div>
-					<div class="span10">
-						{{view Balanced.EventsSideBarView contentBinding="refund"}}
-					</div>
-				</div>
+				{{txn-funding-instrument funding_instrument=refund.debit.source}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2 border-adjust"></div>
+			<div class="span18 border-adjust">
+				{{render "logs.index" debit}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="span2 border-adjust"></div>
+			<div class="span18 border-adjust">
+				{{view Balanced.EventsSideBarView contentBinding="refund"}}
 			</div>
 		</div>
 	</div>
